@@ -1,9 +1,9 @@
 {
-  "name": "cdktf-secure-constructs",
+  "name": "cdktf-aws-secure",
   "description": "High level CDKTF construct to provision secure configurations with AWS",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shazi7804/cdktf-secure-constructs.git"
+    "url": "https://github.com/shazi7804/cdktf-aws-secure-constructs.git"
   },
   "scripts": {
     "projen": "npx projen",
