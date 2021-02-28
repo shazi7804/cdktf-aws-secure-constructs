@@ -60,17 +60,17 @@ const project = new JsiiProject({
   license: 'Apache-2.0',
   defaultReleaseBranch: 'main',
   dependencies: {
-    '@cdktf/provider-github': awsProviderVersion
+    '@cdktf/provider-aws': awsProviderVersion
   },
   devDependencies: {
-    '@cdktf/provider-github': awsProviderVersion,
+    '@cdktf/provider-aws': awsProviderVersion,
     'cdktf': cdktfVersion,
     'constructs': constructsVersion
   },
   peerDependencies: {
     'cdktf': cdktfVersion,
     'constructs': constructsVersion,
-    '@cdktf/provider-github': awsProviderVersion
+    '@cdktf/provider-aws': awsProviderVersion
   }
 });
 
