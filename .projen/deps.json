@@ -24,17 +24,7 @@
       "type": "build"
     },
     {
-      "name": "@typescript-eslint/eslint-plugin",
-      "version": "4.15.2",
-      "type": "build"
-    },
-    {
       "name": "@typescript-eslint/parser",
-      "type": "build"
-    },
-    {
-      "name": "@typescript-eslint/parser",
-      "version": "4.15.2",
       "type": "build"
     },
     {
@@ -127,16 +117,6 @@
     {
       "name": "@cdktf/provider-aws",
       "version": "^1.0.7",
-      "type": "peer"
-    },
-    {
-      "name": "@typescript-eslint/eslint-plugin",
-      "version": "^4.15.2",
-      "type": "peer"
-    },
-    {
-      "name": "@typescript-eslint/parser",
-      "version": "^4.15.2",
       "type": "peer"
     },
     {

@@ -10,7 +10,7 @@ export interface CreateAccountPasswordPolicyProps {
   readonly requireLowercaseCharacters?: boolean;
   readonly requireSymbols?: boolean;
   readonly allowUsersToChangePassword?: boolean;
-  readonly max_password_age?: number;
+  readonly maxPasswordAge?: number;
 }
 
 export class CreateAccountPasswordPolicy extends Resource {
@@ -27,7 +27,7 @@ export class CreateAccountPasswordPolicy extends Resource {
       requireLowercaseCharacters: props.requireLowercaseCharacters ?? true,
       requireSymbols: props.requireSymbols ?? true,
       allowUsersToChangePassword: props.allowUsersToChangePassword ?? true,
-      maxPasswordAge: props.max_password_age ?? 90,
+      maxPasswordAge: props.maxPasswordAge ?? 90,
     });
 
     this.expirePasswords = policy.expirePasswords;

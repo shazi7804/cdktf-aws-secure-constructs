@@ -34,8 +34,6 @@ const project = new JsiiProject({
     '@cdktf/provider-aws@^1.0.7',
     'constructs@3.0.4',
     'projen',
-    '@typescript-eslint/eslint-plugin@^4.15.2',
-    '@typescript-eslint/parser@^4.15.2',
   ],
   jest: {
     testMatch: [
