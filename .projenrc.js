@@ -7,7 +7,7 @@ const project = new JsiiProject({
   repository: 'https://github.com/shazi7804/cdktf-aws-secure-constructs.git',
   description: 'High level CDKTF construct to provision secure configurations with AWS',
   license: 'Apache-2.0',
-  defaultReleaseBranch: 'master',
+  defaultReleaseBranch: 'main',
   autoDetectBin: false,
   dependabot: false,
   cdkDependencies: [
@@ -21,12 +21,23 @@ const project = new JsiiProject({
   deps: [
     'cdktf@0.1.0',
     '@cdktf/provider-aws@^1.0.7',
-    'constructs@3.0.0',
+    'constructs@3.0.4',
     'projen',
     '@typescript-eslint/eslint-plugin@^4.15.2',
     '@typescript-eslint/parser@^4.15.2',
   ],
   devDeps: [
+    'cdktf@0.1.0',
+    '@cdktf/provider-aws@^1.0.7',
+    'constructs@3.0.4',
+    '@typescript-eslint/eslint-plugin@^4.15.2',
+    '@typescript-eslint/parser@^4.15.2',
+  ],
+  peerDeps: [
+    'cdktf@0.1.0',
+    '@cdktf/provider-aws@^1.0.7',
+    'constructs@3.0.4',
+    'projen',
     '@typescript-eslint/eslint-plugin@^4.15.2',
     '@typescript-eslint/parser@^4.15.2',
   ],
@@ -37,7 +48,6 @@ const project = new JsiiProject({
   },
 });
 
-const common_exclude = ['cdktf.out'];
 project.gitignore.exclude('**/*.js');
 project.gitignore.exclude('**/*.d.ts');
 project.gitignore.exclude('package-lock.json');

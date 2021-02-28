@@ -1,6 +1,16 @@
 {
   "dependencies": [
     {
+      "name": "@cdktf/provider-aws",
+      "version": "^1.0.7",
+      "type": "build"
+    },
+    {
+      "name": "@cdktf/provider-aws",
+      "version": "1.0.7",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -19,12 +29,42 @@
       "type": "build"
     },
     {
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "4.15.2",
+      "type": "build"
+    },
+    {
       "name": "@typescript-eslint/parser",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/parser",
       "version": "^4.15.2",
+      "type": "build"
+    },
+    {
+      "name": "@typescript-eslint/parser",
+      "version": "4.15.2",
+      "type": "build"
+    },
+    {
+      "name": "cdktf",
+      "version": "0.1.0",
+      "type": "build"
+    },
+    {
+      "name": "cdktf",
+      "version": "0.1.0",
+      "type": "build"
+    },
+    {
+      "name": "constructs",
+      "version": "3.0.4",
+      "type": "build"
+    },
+    {
+      "name": "constructs",
+      "version": "3.0.4",
       "type": "build"
     },
     {
@@ -74,6 +114,10 @@
     },
     {
       "name": "projen",
+      "type": "build"
+    },
+    {
+      "name": "projen",
       "version": "^0.16.19",
       "type": "build"
     },
@@ -89,6 +133,35 @@
     {
       "name": "typescript",
       "type": "build"
+    },
+    {
+      "name": "@cdktf/provider-aws",
+      "version": "^1.0.7",
+      "type": "peer"
+    },
+    {
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "^4.15.2",
+      "type": "peer"
+    },
+    {
+      "name": "@typescript-eslint/parser",
+      "version": "^4.15.2",
+      "type": "peer"
+    },
+    {
+      "name": "cdktf",
+      "version": "0.1.0",
+      "type": "peer"
+    },
+    {
+      "name": "constructs",
+      "version": "3.0.4",
+      "type": "peer"
+    },
+    {
+      "name": "projen",
+      "type": "peer"
     },
     {
       "name": "@cdktf/provider-aws",
@@ -112,7 +185,7 @@
     },
     {
       "name": "constructs",
-      "version": "3.0.0",
+      "version": "3.0.4",
       "type": "runtime"
     },
     {
