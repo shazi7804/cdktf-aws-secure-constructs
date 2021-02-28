@@ -23,15 +23,11 @@ const project = new JsiiProject({
     '@cdktf/provider-aws@^1.0.7',
     'constructs@3.0.4',
     'projen',
-    '@typescript-eslint/eslint-plugin@^4.15.2',
-    '@typescript-eslint/parser@^4.15.2',
   ],
   devDeps: [
     'cdktf@0.1.0',
     '@cdktf/provider-aws@^1.0.7',
     'constructs@3.0.4',
-    '@typescript-eslint/eslint-plugin@^4.15.2',
-    '@typescript-eslint/parser@^4.15.2',
   ],
   peerDeps: [
     'cdktf@0.1.0',
