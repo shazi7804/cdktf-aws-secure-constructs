@@ -35,11 +35,6 @@ const project = new JsiiProject({
     'constructs@3.0.4',
     'projen',
   ],
-  jest: {
-    testMatch: [
-      'tests/*.ts',
-    ],
-  },
 });
 
 project.gitignore.exclude('**/*.js');
