@@ -21,18 +21,18 @@ const project = new JsiiProject({
   deps: [
     'cdktf@0.1.0',
     '@cdktf/provider-aws@^1.0.7',
-    'constructs@3.0.4',
+    'constructs@^3.0.0',
     'projen',
   ],
   devDeps: [
     'cdktf@0.1.0',
     '@cdktf/provider-aws@^1.0.7',
-    'constructs@3.0.4',
+    'constructs@^3.0.0',
   ],
   peerDeps: [
     'cdktf@0.1.0',
     '@cdktf/provider-aws@^1.0.7',
-    'constructs@3.0.4',
+    'constructs@^3.0.0',
     'projen',
   ],
 });

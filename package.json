@@ -36,7 +36,7 @@
     "@typescript-eslint/eslint-plugin": "4.15.2",
     "@typescript-eslint/parser": "4.15.2",
     "cdktf": "0.1.0",
-    "constructs": "3.0.4",
+    "constructs": "3.0.0",
     "eslint": "^7.21.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.4.0",
@@ -56,13 +56,13 @@
   "peerDependencies": {
     "@cdktf/provider-aws": "^1.0.7",
     "cdktf": "0.1.0",
-    "constructs": "3.0.4",
+    "constructs": "^3.0.0",
     "projen": "^0.16.19"
   },
   "dependencies": {
     "@cdktf/provider-aws": "^1.0.7",
     "cdktf": "0.1.0",
-    "constructs": "3.0.4",
+    "constructs": "^3.0.0",
     "projen": "^0.16.19"
   },
   "bundledDependencies": [],
