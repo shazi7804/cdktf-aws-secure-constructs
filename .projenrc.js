@@ -59,6 +59,10 @@ const project = new JsiiProject({
   description: 'High level CDKTF construct to provision secure configurations with AWS',
   license: 'Apache-2.0',
   defaultReleaseBranch: 'main',
+  python: {
+    distName: 'cdktf-aws-secure',
+    module: 'cdktf_aws_secure',
+  },
   dependencies: {
     '@cdktf/provider-aws': awsProviderVersion
   },
@@ -78,5 +82,6 @@ project.gitignore.exclude('**/*.js')
 project.gitignore.exclude('**/*.d.ts')
 project.gitignore.exclude('package-lock.json')
 project.gitignore.exclude('yarn.lock')
+project.gitignore.exclude('/test/__snapshots__/')
 
 project.synth();

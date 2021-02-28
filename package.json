@@ -173,7 +173,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "cdktf-aws-secure",
+        "module": "cdktf_aws_secure"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"

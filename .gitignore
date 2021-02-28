@@ -47,6 +47,7 @@ tsconfig.json
 **/*.d.ts
 package-lock.json
 yarn.lock
+/test/__snapshots__/
 !/package.json
 !/.npmignore
 !/LICENSE
