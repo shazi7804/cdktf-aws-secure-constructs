@@ -24,7 +24,6 @@
     "target": "ES2018"
   },
   "include": [
-    ".projenrc.js",
     "src/**/*.ts",
     "test/**/*.ts"
   ],

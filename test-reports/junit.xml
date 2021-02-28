@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="2.428">
+  <testsuite name="secure of IAM" errors="0" failures="0" skipped="0" timestamp="2021-02-28T12:19:29" time="1.693" tests="1">
+    <testcase classname="secure of IAM default account password policy" name="secure of IAM default account password policy" time="0.007">
+    </testcase>
+  </testsuite>
+</testsuites>
