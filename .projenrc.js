@@ -49,7 +49,7 @@ const { JsiiProject, Semver } = require('projen');
 
 const cdktfVersion = Semver.caret('0.0.16')
 const constructsVersion = Semver.caret('3.0.0')
-const awsProviderVersion = Semver.caret('1.0.7')
+const awsProviderVersion = Semver.caret('1.0.17')
 
 const project = new JsiiProject({
   name: 'cdktf-aws-secure',
@@ -77,5 +77,6 @@ const project = new JsiiProject({
 project.gitignore.exclude('**/*.js')
 project.gitignore.exclude('**/*.d.ts')
 project.gitignore.exclude('package-lock.json')
+project.gitignore.exclude('yarn.lock')
 
 project.synth();
