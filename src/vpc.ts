@@ -16,13 +16,13 @@ export class CreateVpcFlowLog extends Resource {
   constructor(scope: Construct, name: string, props: CreateVpcFlowLogProps ) {
     super(scope, name);
 
-    const region = new AWS.DataAwsRegion(this, 'currentRegion');
+    const region = new AWS.DataAwsRegion(this, 'currentRegion').name;
     const accountId = new AWS.DataAwsCallerIdentity(this, 'currentAccount').accountId;
 
     // Default destination export to S3
     if (props.logDestinationType == 's3' || props.logDestinationType === undefined) {
       const bucket = new AWS.S3Bucket(this, 'VpcFlogLogBucket', {
-        bucket: 'vpc-flowlog-secure-' + region + accountId,
+        bucket: 'vpc-flowlog-secure-' + region + '-' + accountId,
       });
 
       new AWS.FlowLog(this, 'VpcFlowLogToCw', {
