@@ -10,4 +10,15 @@ describe('secure of IAM', () => {
 
     expect(Testing.synth(stack)).toMatchSnapshot();
   });
+
+  test('Add Config rule of account password policy', () => {
+    const app = Testing.app();
+    const stack = new TerraformStack(app, 'test');
+
+    const policy = new CreateAccountPasswordPolicy(stack, 'TestDefault', {});
+    policy.addConfigRule();
+
+    expect(Testing.synth(stack)).toMatchSnapshot();
+  });
 });
+

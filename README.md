@@ -14,21 +14,21 @@ Just the constructs
 npm install cdktf-aws-secure
 ```
 
-## Example
-
-- Enable account password policy by default
+## Examples
 
 ```ts
 import { Construct } from 'constructs';
 import { Resource } from 'cdktf';
-import { CreateAccountPasswordPolicy } from 'cdktf-aws-secure';
+import { secure } from 'cdktf-aws-secure';
 
 export class AwsSecure extends Resource {
     constructor(scope: Construct, name: string ) {
         super(scope, name);
 
-        const policy = new CreateAccountPasswordPolicy(this, 'DefaultAccountPwdPolicy', {})
+        // Enable account password policy
+        const policy = new secure.reateAccountPasswordPolicy(this, 'DefaultAccountPwdPolicy', {})
 
+        // and also add Config rule.
         policy.addConfigRule()
     }
 }
