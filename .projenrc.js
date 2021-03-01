@@ -28,7 +28,15 @@ const project = new JsiiProject({
     'cdktf': cdktfVersion,
     'constructs': constructsVersion,
     '@cdktf/provider-aws': awsProviderVersion
-  }
+  },
+  gitignore: [
+    '.DS_Store',
+    '**/*.js',
+    '**/*.d.ts',
+    'package-lock.json',
+    'yarn.lock',
+    '/test/__snapshots__/'
+  ]
 });
 
 project.gitignore.exclude('**/*.js')

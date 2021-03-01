@@ -19,18 +19,29 @@ export class CreateVpcFlowLog extends Resource {
     const region = new AWS.DataAwsRegion(this, 'currentRegion').name;
     const accountId = new AWS.DataAwsCallerIdentity(this, 'currentAccount').accountId;
 
-    // Default destination export to S3
+    // default destination export to S3
     if (props.logDestinationType == 's3' || props.logDestinationType === undefined) {
-      const bucket = new AWS.S3Bucket(this, 'VpcFlogLogBucket', {
-        bucket: 'vpc-flowlog-secure-' + region + '-' + accountId,
-      });
 
-      new AWS.FlowLog(this, 'VpcFlowLogToCw', {
-        trafficType: props.trafficType ?? 'ALL',
-        logDestinationType: 's3',
-        logDestination: bucket.arn,
-        vpcId: props.vpcId,
-      });
+      // default help to create s3 bucket
+      if (props.logDestination === undefined) {
+        const bucket = new AWS.S3Bucket(this, 'VpcFlogLogBucket', {
+          bucket: 'vpc-flowlog-secure-' + region + '-' + accountId,
+        });
+
+        new AWS.FlowLog(this, 'VpcFlowLogToCw', {
+          trafficType: props.trafficType ?? 'ALL',
+          logDestinationType: 's3',
+          logDestination: bucket.arn,
+          vpcId: props.vpcId,
+        });
+      } else {
+        new AWS.FlowLog(this, 'VpcFlowLogToCw', {
+          trafficType: props.trafficType ?? 'ALL',
+          logDestinationType: 's3',
+          logDestination: props.logDestination,
+          vpcId: props.vpcId,
+        });
+      }
     } else if (props.logDestinationType == 'cloud-watch-logs') {
     // Destination export to CloudWatch
       const role = new AWS.IamRole(this, 'FlowLogRole', {
@@ -84,8 +95,8 @@ export class CreateVpcFlowLog extends Resource {
   }
 
   /**
-         * addConfigRule
-         */
+   * addConfigRule
+   */
   public addConfigRule(): void {
     new AWS.ConfigConfigRule(this, 'VpcFlowLogEnabledConfigRule', {
       name: 'VpcFlowLogsEnabled',
