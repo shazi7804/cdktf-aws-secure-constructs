@@ -12,6 +12,8 @@ export interface CreateVpcFlowLogProps {
 }
 
 export class CreateVpcFlowLog extends Resource {
+  public readonly bucketArn?: string;
+  public readonly cwLogGroupArn?: string;
 
   constructor(scope: Construct, name: string, props: CreateVpcFlowLogProps ) {
     super(scope, name);
@@ -26,15 +28,17 @@ export class CreateVpcFlowLog extends Resource {
       if (props.logDestination === undefined) {
         const bucket = new AWS.S3Bucket(this, 'VpcFlogLogBucket', {
           bucket: 'vpc-flowlog-secure-' + region + '-' + accountId,
-          tags: props.tags
+          tags: props.tags,
         });
+
+        this.bucketArn = bucket.arn;
 
         new AWS.FlowLog(this, 'VpcFlowLogToCw', {
           trafficType: props.trafficType ?? 'ALL',
           logDestinationType: 's3',
           logDestination: bucket.arn,
           vpcId: props.vpcId,
-          tags: props.tags
+          tags: props.tags,
         });
       } else {
         new AWS.FlowLog(this, 'VpcFlowLogToCw', {
@@ -42,7 +46,7 @@ export class CreateVpcFlowLog extends Resource {
           logDestinationType: 's3',
           logDestination: props.logDestination,
           vpcId: props.vpcId,
-          tags: props.tags
+          tags: props.tags,
         });
       }
     } else if (props.logDestinationType == 'cloud-watch-logs') {
@@ -76,7 +80,7 @@ export class CreateVpcFlowLog extends Resource {
             Resource: '*',
             Effect: 'Allow',
           }],
-        })
+        }),
       });
 
       new AWS.IamPolicyAttachment(this, 'FlowLogPolicyAttachRole', {
@@ -86,6 +90,8 @@ export class CreateVpcFlowLog extends Resource {
       });
 
       const cwLogGroup = new AWS.CloudwatchLogGroup(this, 'VpcFlowLogGroup', {});
+
+      this.cwLogGroupArn = cwLogGroup.arn;
 
       new AWS.FlowLog(this, 'VpcFlowLogToCw', {
         iamRoleArn: role.arn,
@@ -99,9 +105,10 @@ export class CreateVpcFlowLog extends Resource {
   }
 
   /**
-   * addConfigRule
+   * Add Config Rule for Vpc flow log
+   * @param tags Config Rule tags
    */
-  public addConfigRule(tags: any): void {
+  public addConfigRule(tags?: any): void {
     new AWS.ConfigConfigRule(this, 'VpcFlowLogEnabledConfigRule', {
       name: 'VpcFlowLogsEnabled',
       source: [{

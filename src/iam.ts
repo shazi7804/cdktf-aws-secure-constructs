@@ -34,9 +34,10 @@ export class CreateAccountPasswordPolicy extends Resource {
   }
 
   /**
-     * addConfigRule
-     */
-  public addConfigRule(tags: any): void {
+   * Add Config Rule for Account Password policy
+   * @param tags Config Rule tags
+   */
+  public addConfigRule(tags?: any): void {
     new AWS.ConfigConfigRule(this, 'defaultAccountPasswordPolicyConfigRule', {
       name: 'IAMAccountMFAEnabled',
       source: [{
