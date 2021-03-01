@@ -26,6 +26,7 @@ export class CreateVpcFlowLog extends Resource {
       if (props.logDestination === undefined) {
         const bucket = new AWS.S3Bucket(this, 'VpcFlogLogBucket', {
           bucket: 'vpc-flowlog-secure-' + region + '-' + accountId,
+          tags: props.tags
         });
 
         new AWS.FlowLog(this, 'VpcFlowLogToCw', {
@@ -33,6 +34,7 @@ export class CreateVpcFlowLog extends Resource {
           logDestinationType: 's3',
           logDestination: bucket.arn,
           vpcId: props.vpcId,
+          tags: props.tags
         });
       } else {
         new AWS.FlowLog(this, 'VpcFlowLogToCw', {
@@ -40,6 +42,7 @@ export class CreateVpcFlowLog extends Resource {
           logDestinationType: 's3',
           logDestination: props.logDestination,
           vpcId: props.vpcId,
+          tags: props.tags
         });
       }
     } else if (props.logDestinationType == 'cloud-watch-logs') {
@@ -73,7 +76,7 @@ export class CreateVpcFlowLog extends Resource {
             Resource: '*',
             Effect: 'Allow',
           }],
-        }),
+        })
       });
 
       new AWS.IamPolicyAttachment(this, 'FlowLogPolicyAttachRole', {
@@ -90,6 +93,7 @@ export class CreateVpcFlowLog extends Resource {
         logDestinationType: 'cloud-watch-logs',
         logDestination: cwLogGroup.arn,
         vpcId: props.vpcId,
+        tags: props.tags,
       });
     }
   }
@@ -97,13 +101,14 @@ export class CreateVpcFlowLog extends Resource {
   /**
    * addConfigRule
    */
-  public addConfigRule(): void {
+  public addConfigRule(tags: any): void {
     new AWS.ConfigConfigRule(this, 'VpcFlowLogEnabledConfigRule', {
       name: 'VpcFlowLogsEnabled',
       source: [{
         owner: 'AWS',
         sourceIdentifier: 'VPC_FLOW_LOGS_ENABLED',
       }],
+      tags,
     });
   }
 }

@@ -36,13 +36,14 @@ export class CreateAccountPasswordPolicy extends Resource {
   /**
      * addConfigRule
      */
-  public addConfigRule(): void {
+  public addConfigRule(tags: any): void {
     new AWS.ConfigConfigRule(this, 'defaultAccountPasswordPolicyConfigRule', {
       name: 'IAMAccountMFAEnabled',
       source: [{
         owner: 'AWS',
         sourceIdentifier: 'MFA_ENABLED_FOR_IAM_CONSOLE_ACCESS',
       }],
+      tags,
     });
   }
 }
