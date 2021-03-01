@@ -39,10 +39,4 @@ const project = new JsiiProject({
   ]
 });
 
-project.gitignore.exclude('**/*.js')
-project.gitignore.exclude('**/*.d.ts')
-project.gitignore.exclude('package-lock.json')
-project.gitignore.exclude('yarn.lock')
-project.gitignore.exclude('/test/__snapshots__/')
-
 project.synth();

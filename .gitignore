@@ -49,11 +49,6 @@ junit.xml
 /dist
 .jsii
 tsconfig.json
-**/*.js
-**/*.d.ts
-package-lock.json
-yarn.lock
-/test/__snapshots__/
 !/package.json
 !/.npmignore
 !/LICENSE
