@@ -26,7 +26,7 @@ export class AwsSecure extends Resource {
         super(scope, name);
 
         // Enable account password policy
-        const policy = new secure.reateAccountPasswordPolicy(this, 'DefaultAccountPwdPolicy', {})
+        const policy = new secure.CreateAccountPasswordPolicy(this, 'DefaultAccountPwdPolicy', {})
 
         // and also add Config rule.
         policy.addConfigRule()
