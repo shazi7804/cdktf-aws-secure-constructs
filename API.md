@@ -5,9 +5,12 @@
 Name|Description
 ----|-----------
 [BaseLine](#cdktf-aws-secure-baseline)|*No description*
-[CreateAccountPasswordPolicy](#cdktf-aws-secure-createaccountpasswordpolicy)|*No description*
-[CreateGuardduty](#cdktf-aws-secure-createguardduty)|*No description*
-[CreateVpcFlowLog](#cdktf-aws-secure-createvpcflowlog)|*No description*
+[EnableAccountPasswordPolicy](#cdktf-aws-secure-enableaccountpasswordpolicy)|*No description*
+[EnableCloudTrail](#cdktf-aws-secure-enablecloudtrail)|*No description*
+[EnableEbsEncryption](#cdktf-aws-secure-enableebsencryption)|*No description*
+[EnableGuardduty](#cdktf-aws-secure-enableguardduty)|*No description*
+[EnableSecurityHub](#cdktf-aws-secure-enablesecurityhub)|*No description*
+[EnableVpcFlowLog](#cdktf-aws-secure-enablevpcflowlog)|*No description*
 
 
 **Structs**
@@ -15,10 +18,12 @@ Name|Description
 Name|Description
 ----|-----------
 [AcceptMemberAccountOptions](#cdktf-aws-secure-acceptmemberaccountoptions)|*No description*
+[AddSecurityHubMemberAccountOptions](#cdktf-aws-secure-addsecurityhubmemberaccountoptions)|*No description*
 [BaseLineProps](#cdktf-aws-secure-baselineprops)|*No description*
-[CreateAccountPasswordPolicyProps](#cdktf-aws-secure-createaccountpasswordpolicyprops)|*No description*
-[CreateGuarddutyProps](#cdktf-aws-secure-createguarddutyprops)|*No description*
-[CreateVpcFlowLogProps](#cdktf-aws-secure-createvpcflowlogprops)|*No description*
+[EnableAccountPasswordPolicyProps](#cdktf-aws-secure-enableaccountpasswordpolicyprops)|*No description*
+[EnableCloudTrailProps](#cdktf-aws-secure-enablecloudtrailprops)|*No description*
+[EnableGuarddutyProps](#cdktf-aws-secure-enableguarddutyprops)|*No description*
+[EnableVpcFlowLogProps](#cdktf-aws-secure-enablevpcflowlogprops)|*No description*
 [InviteAccepterMemberAccountOptions](#cdktf-aws-secure-inviteacceptermemberaccountoptions)|*No description*
 
 
@@ -50,7 +55,7 @@ new BaseLine(scope: Construct, name: string, props: BaseLineProps)
 
 
 
-## class CreateAccountPasswordPolicy  <a id="cdktf-aws-secure-createaccountpasswordpolicy"></a>
+## class EnableAccountPasswordPolicy  <a id="cdktf-aws-secure-enableaccountpasswordpolicy"></a>
 
 
 
@@ -63,12 +68,12 @@ __Extends__: [Resource](#cdktf-resource)
 
 
 ```ts
-new CreateAccountPasswordPolicy(scope: Construct, name: string, props: CreateAccountPasswordPolicyProps)
+new EnableAccountPasswordPolicy(scope: Construct, name: string, props: EnableAccountPasswordPolicyProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **name** (<code>string</code>)  *No description*
-* **props** (<code>[CreateAccountPasswordPolicyProps](#cdktf-aws-secure-createaccountpasswordpolicyprops)</code>)  *No description*
+* **props** (<code>[EnableAccountPasswordPolicyProps](#cdktf-aws-secure-enableaccountpasswordpolicyprops)</code>)  *No description*
   * **allowUsersToChangePassword** (<code>boolean</code>)  *No description* __*Optional*__
   * **maxPasswordAge** (<code>number</code>)  *No description* __*Optional*__
   * **minimumPasswordLength** (<code>number</code>)  *No description* __*Optional*__
@@ -90,7 +95,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addConfigRule(tags?) <a id="cdktf-aws-secure-createaccountpasswordpolicy-addconfigrule"></a>
+#### addConfigRule(tags?) <a id="cdktf-aws-secure-enableaccountpasswordpolicy-addconfigrule"></a>
 
 Add Config Rule for Account Password policy.
 
@@ -105,7 +110,7 @@ addConfigRule(tags?: any): void
 
 
 
-## class CreateGuardduty  <a id="cdktf-aws-secure-createguardduty"></a>
+## class EnableCloudTrail  <a id="cdktf-aws-secure-enablecloudtrail"></a>
 
 
 
@@ -118,12 +123,92 @@ __Extends__: [Resource](#cdktf-resource)
 
 
 ```ts
-new CreateGuardduty(scope: Construct, name: string, props: CreateGuarddutyProps)
+new EnableCloudTrail(scope: Construct, name: string, props: EnableCloudTrailProps)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **name** (<code>string</code>)  *No description*
-* **props** (<code>[CreateGuarddutyProps](#cdktf-aws-secure-createguarddutyprops)</code>)  *No description*
+* **props** (<code>[EnableCloudTrailProps](#cdktf-aws-secure-enablecloudtrailprops)</code>)  *No description*
+  * **bucketKeyPrefix** (<code>string</code>)  *No description* __*Optional*__
+  * **bucketName** (<code>string</code>)  *No description* __*Optional*__
+  * **tags** (<code>Map<string, string></code>)  *No description* __*Optional*__
+
+
+### Methods
+
+
+#### addConfigRule(tags?) <a id="cdktf-aws-secure-enablecloudtrail-addconfigrule"></a>
+
+Add Config Rule for Cloudtrail enabled.
+
+```ts
+addConfigRule(tags?: any): void
+```
+
+* **tags** (<code>any</code>)  Config Rule tags.
+
+
+
+
+
+
+## class EnableEbsEncryption  <a id="cdktf-aws-secure-enableebsencryption"></a>
+
+
+
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdktf-iresource), [IConstruct](#constructs-iconstruct)
+__Extends__: [Resource](#cdktf-resource)
+
+### Initializer
+
+
+
+
+```ts
+new EnableEbsEncryption(scope: Construct, name: string)
+```
+
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
+* **name** (<code>string</code>)  *No description*
+
+
+### Methods
+
+
+#### addConfigRule(tags?) <a id="cdktf-aws-secure-enableebsencryption-addconfigrule"></a>
+
+Add Config Rule for EBS default encrypt enabled.
+
+```ts
+addConfigRule(tags?: any): void
+```
+
+* **tags** (<code>any</code>)  Config Rule tags.
+
+
+
+
+
+
+## class EnableGuardduty  <a id="cdktf-aws-secure-enableguardduty"></a>
+
+
+
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdktf-iresource), [IConstruct](#constructs-iconstruct)
+__Extends__: [Resource](#cdktf-resource)
+
+### Initializer
+
+
+
+
+```ts
+new EnableGuardduty(scope: Construct, name: string, props: EnableGuarddutyProps)
+```
+
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
+* **name** (<code>string</code>)  *No description*
+* **props** (<code>[EnableGuarddutyProps](#cdktf-aws-secure-enableguarddutyprops)</code>)  *No description*
   * **findingPublishingFrequency** (<code>string</code>)  *No description* __*Optional*__
   * **members** (<code>any</code>)  *No description* __*Optional*__
   * **tags** (<code>Map<string, string></code>)  *No description* __*Optional*__
@@ -140,7 +225,7 @@ Name | Type | Description
 ### Methods
 
 
-#### acceptMemberAccount(id, options) <a id="cdktf-aws-secure-createguardduty-acceptmemberaccount"></a>
+#### acceptMemberAccount(id, options) <a id="cdktf-aws-secure-enableguardduty-acceptmemberaccount"></a>
 
 Accept Member Account.
 
@@ -156,7 +241,7 @@ acceptMemberAccount(id: string, options: AcceptMemberAccountOptions): void
 
 
 
-#### addConfigRule(tags?) <a id="cdktf-aws-secure-createguardduty-addconfigrule"></a>
+#### addConfigRule(tags?) <a id="cdktf-aws-secure-enableguardduty-addconfigrule"></a>
 
 Add Config Rule for Guardduty.
 
@@ -169,7 +254,7 @@ addConfigRule(tags?: any): void
 
 
 
-#### inviteAccepterMemberAccount(id, options) <a id="cdktf-aws-secure-createguardduty-inviteacceptermemberaccount"></a>
+#### inviteAccepterMemberAccount(id, options) <a id="cdktf-aws-secure-enableguardduty-inviteacceptermemberaccount"></a>
 
 Accept Member Account.
 
@@ -186,7 +271,7 @@ inviteAccepterMemberAccount(id: string, options: InviteAccepterMemberAccountOpti
 
 
 
-## class CreateVpcFlowLog  <a id="cdktf-aws-secure-createvpcflowlog"></a>
+## class EnableSecurityHub  <a id="cdktf-aws-secure-enablesecurityhub"></a>
 
 
 
@@ -199,12 +284,66 @@ __Extends__: [Resource](#cdktf-resource)
 
 
 ```ts
-new CreateVpcFlowLog(scope: Construct, name: string, props: CreateVpcFlowLogProps)
+new EnableSecurityHub(scope: Construct, name: string)
 ```
 
 * **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **name** (<code>string</code>)  *No description*
-* **props** (<code>[CreateVpcFlowLogProps](#cdktf-aws-secure-createvpcflowlogprops)</code>)  *No description*
+
+
+### Methods
+
+
+#### addConfigRule(tags?) <a id="cdktf-aws-secure-enablesecurityhub-addconfigrule"></a>
+
+Add Config Rule for Security Hub enabled.
+
+```ts
+addConfigRule(tags?: any): void
+```
+
+* **tags** (<code>any</code>)  Config Rule tags.
+
+
+
+
+#### addSecurityHubMemberAccount(id, options) <a id="cdktf-aws-secure-enablesecurityhub-addsecurityhubmemberaccount"></a>
+
+Add Member Account of Security Hub.
+
+```ts
+addSecurityHubMemberAccount(id: string, options: AddSecurityHubMemberAccountOptions): void
+```
+
+* **id** (<code>string</code>)  Security Hub member id.
+* **options** (<code>[AddSecurityHubMemberAccountOptions](#cdktf-aws-secure-addsecurityhubmemberaccountoptions)</code>)  Security Hub options.
+  * **accountId** (<code>string</code>)  *No description* 
+  * **email** (<code>string</code>)  *No description* 
+
+
+
+
+
+
+## class EnableVpcFlowLog  <a id="cdktf-aws-secure-enablevpcflowlog"></a>
+
+
+
+__Implements__: [IConstruct](#constructs-iconstruct), [IResource](#cdktf-iresource), [IConstruct](#constructs-iconstruct)
+__Extends__: [Resource](#cdktf-resource)
+
+### Initializer
+
+
+
+
+```ts
+new EnableVpcFlowLog(scope: Construct, name: string, props: EnableVpcFlowLogProps)
+```
+
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
+* **name** (<code>string</code>)  *No description*
+* **props** (<code>[EnableVpcFlowLogProps](#cdktf-aws-secure-enablevpcflowlogprops)</code>)  *No description*
   * **vpcId** (<code>string</code>)  *No description* 
   * **logDestination** (<code>string</code>)  *No description* __*Optional*__
   * **logDestinationType** (<code>string</code>)  *No description* __*Optional*__
@@ -225,7 +364,7 @@ Name | Type | Description
 ### Methods
 
 
-#### addConfigRule(tags?) <a id="cdktf-aws-secure-createvpcflowlog-addconfigrule"></a>
+#### addConfigRule(tags?) <a id="cdktf-aws-secure-enablevpcflowlog-addconfigrule"></a>
 
 Add Config Rule for Vpc flow log.
 
@@ -241,6 +380,20 @@ addConfigRule(tags?: any): void
 
 
 ## struct AcceptMemberAccountOptions  <a id="cdktf-aws-secure-acceptmemberaccountoptions"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**accountId** | <code>string</code> | <span></span>
+**email** | <code>string</code> | <span></span>
+
+
+
+## struct AddSecurityHubMemberAccountOptions  <a id="cdktf-aws-secure-addsecurityhubmemberaccountoptions"></a>
 
 
 
@@ -270,7 +423,7 @@ Name | Type | Description
 
 
 
-## struct CreateAccountPasswordPolicyProps  <a id="cdktf-aws-secure-createaccountpasswordpolicyprops"></a>
+## struct EnableAccountPasswordPolicyProps  <a id="cdktf-aws-secure-enableaccountpasswordpolicyprops"></a>
 
 
 
@@ -290,7 +443,22 @@ Name | Type | Description
 
 
 
-## struct CreateGuarddutyProps  <a id="cdktf-aws-secure-createguarddutyprops"></a>
+## struct EnableCloudTrailProps  <a id="cdktf-aws-secure-enablecloudtrailprops"></a>
+
+
+
+
+
+
+Name | Type | Description 
+-----|------|-------------
+**bucketKeyPrefix**? | <code>string</code> | __*Optional*__
+**bucketName**? | <code>string</code> | __*Optional*__
+**tags**? | <code>Map<string, string></code> | __*Optional*__
+
+
+
+## struct EnableGuarddutyProps  <a id="cdktf-aws-secure-enableguarddutyprops"></a>
 
 
 
@@ -305,7 +473,7 @@ Name | Type | Description
 
 
 
-## struct CreateVpcFlowLogProps  <a id="cdktf-aws-secure-createvpcflowlogprops"></a>
+## struct EnableVpcFlowLogProps  <a id="cdktf-aws-secure-enablevpcflowlogprops"></a>
 
 
 

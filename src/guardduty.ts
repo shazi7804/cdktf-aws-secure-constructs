@@ -2,7 +2,7 @@ import * as AWS from '@cdktf/provider-aws';
 import { Resource } from 'cdktf';
 import { Construct } from 'constructs';
 
-export interface CreateGuarddutyProps {
+export interface EnableGuarddutyProps {
   readonly findingPublishingFrequency?: string;
   readonly members?: any;
   readonly tags?: { [key: string]: string };
@@ -17,10 +17,10 @@ export interface InviteAccepterMemberAccountOptions {
   readonly masterAccountId: string;
 }
 
-export class CreateGuardduty extends Resource {
+export class EnableGuardduty extends Resource {
   public readonly id: string;
 
-  constructor(scope: Construct, name: string, props: CreateGuarddutyProps ) {
+  constructor(scope: Construct, name: string, props: EnableGuarddutyProps ) {
     super(scope, name);
 
     const gd = new AWS.GuarddutyDetector(this, 'DefaultGuarddutyDetector', {

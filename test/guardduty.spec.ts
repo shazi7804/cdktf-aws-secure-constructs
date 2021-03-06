@@ -1,12 +1,12 @@
 import { Testing, TerraformStack } from 'cdktf';
-import { CreateGuardduty } from '../src';
+import { EnableGuardduty } from '../src';
 
 describe('secure of Guardduty', () => {
   test('default create Guardduty', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    new CreateGuardduty(stack, 'TestDefault', {});
+    new EnableGuardduty(stack, 'TestDefault', {});
 
     expect(Testing.synth(stack)).toMatchSnapshot();
   });
@@ -15,7 +15,7 @@ describe('secure of Guardduty', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    const gd = new CreateGuardduty(stack, 'TestDefault', {});
+    const gd = new EnableGuardduty(stack, 'TestDefault', {});
     gd.addConfigRule();
 
     expect(Testing.synth(stack)).toMatchSnapshot();
@@ -25,7 +25,7 @@ describe('secure of Guardduty', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    const gd = new CreateGuardduty(stack, 'TestDefault', {});
+    const gd = new EnableGuardduty(stack, 'TestDefault', {});
     gd.acceptMemberAccount('acceptMemberAccount', {
       accountId: '1234567890',
       email: 'foo@bar.com',
@@ -38,7 +38,7 @@ describe('secure of Guardduty', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    const gd = new CreateGuardduty(stack, 'TestDefault', {});
+    const gd = new EnableGuardduty(stack, 'TestDefault', {});
     gd.inviteAccepterMemberAccount('inviteAccepterMemberAccount', {
       masterAccountId: '1234567890',
     });

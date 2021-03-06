@@ -2,7 +2,7 @@ import * as AWS from '@cdktf/provider-aws';
 import { Resource } from 'cdktf';
 import { Construct } from 'constructs';
 
-export interface CreateAccountPasswordPolicyProps {
+export interface EnableAccountPasswordPolicyProps {
   readonly minimumPasswordLength?: number;
   readonly passwordReusePrevention?: number;
   readonly requireNumbers?: boolean;
@@ -13,10 +13,10 @@ export interface CreateAccountPasswordPolicyProps {
   readonly maxPasswordAge?: number;
 }
 
-export class CreateAccountPasswordPolicy extends Resource {
+export class EnableAccountPasswordPolicy extends Resource {
   public readonly expirePasswords: boolean;
 
-  constructor(scope: Construct, name: string, props: CreateAccountPasswordPolicyProps ) {
+  constructor(scope: Construct, name: string, props: EnableAccountPasswordPolicyProps ) {
     super(scope, name);
 
     const policy = new AWS.IamAccountPasswordPolicy(this, 'defaultAccountPasswordPolicy', {

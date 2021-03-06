@@ -1,13 +1,13 @@
 import { Testing, TerraformStack } from 'cdktf';
-import { BaseLine } from '../src';
+import * as secure from '../src';
 
-describe('default', () => {
-  test('default account password policy', () => {
+describe('secure all', () => {
+  test('default', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    new BaseLine(stack, 'TestDefault', {
-      vpcId: 'vpc-1234567890',
+    new secure.BaseLine(stack, 'TestDefault', {
+      vpcId: 'vpc-123456789',
     });
 
     expect(Testing.synth(stack)).toMatchSnapshot();

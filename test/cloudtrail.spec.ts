@@ -1,21 +1,21 @@
 import { Testing, TerraformStack } from 'cdktf';
-import { EnableAccountPasswordPolicy } from '../src';
+import { EnableCloudTrail } from '../src';
 
-describe('secure of IAM', () => {
-  test('default account password policy', () => {
+describe('secure of CloudTrail', () => {
+  test('default enable cloudtrail', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    new EnableAccountPasswordPolicy(stack, 'TestDefault', {});
+    new EnableCloudTrail(stack, 'TestDefault', {});
 
     expect(Testing.synth(stack)).toMatchSnapshot();
   });
 
-  test('Add Config rule of account password policy', () => {
+  test('Add Config rule of CloudTrail enabled', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    const policy = new EnableAccountPasswordPolicy(stack, 'TestDefault', {});
+    const policy = new EnableCloudTrail(stack, 'TestDefault', {});
     policy.addConfigRule();
 
     expect(Testing.synth(stack)).toMatchSnapshot();

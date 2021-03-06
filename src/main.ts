@@ -14,15 +14,15 @@ export class BaseLine extends Resource {
     super(scope, name);
 
     if (props.enableIamAccountPasswordPolicy) {
-      new secure.CreateAccountPasswordPolicy(this, 'CreateAccountPasswordPolicy', {});
+      new secure.EnableAccountPasswordPolicy(this, 'EnableAccountPasswordPolicy', {});
     };
 
     if (props.enableGuardduty) {
-      new secure.CreateGuardduty(this, 'CreateGuardduty', {});
+      new secure.EnableGuardduty(this, 'EnableGuardduty', {});
     };
 
     if (props.enableVpcFlowLog) {
-      new secure.CreateVpcFlowLog(this, 'CreateVpcFlowLog', {
+      new secure.EnableVpcFlowLog(this, 'EnableVpcFlowLog', {
         vpcId: props.vpcId,
       });
     }

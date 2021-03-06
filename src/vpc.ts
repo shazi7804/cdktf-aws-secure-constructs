@@ -2,7 +2,7 @@ import * as AWS from '@cdktf/provider-aws';
 import { Resource } from 'cdktf';
 import { Construct } from 'constructs';
 
-export interface CreateVpcFlowLogProps {
+export interface EnableVpcFlowLogProps {
   readonly vpcId: string;
   readonly logDestination?: string;
   readonly logDestinationType?: string;
@@ -11,11 +11,11 @@ export interface CreateVpcFlowLogProps {
   readonly tags?: { [key: string]: string };
 }
 
-export class CreateVpcFlowLog extends Resource {
+export class EnableVpcFlowLog extends Resource {
   public readonly bucketArn?: string;
   public readonly cwLogGroupArn?: string;
 
-  constructor(scope: Construct, name: string, props: CreateVpcFlowLogProps ) {
+  constructor(scope: Construct, name: string, props: EnableVpcFlowLogProps ) {
     super(scope, name);
 
     const region = new AWS.DataAwsRegion(this, 'currentRegion').name;

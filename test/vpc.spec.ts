@@ -1,12 +1,12 @@
 import { Testing, TerraformStack } from 'cdktf';
-import { CreateVpcFlowLog } from '../src';
+import { EnableVpcFlowLog } from '../src';
 
 describe('secure of Vpc', () => {
   test('default enabled vpc flow log', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    new CreateVpcFlowLog(stack, 'test', {
+    new EnableVpcFlowLog(stack, 'test', {
       vpcId: 'vpc-123456789',
     });
 
@@ -17,7 +17,7 @@ describe('secure of Vpc', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    new CreateVpcFlowLog(stack, 'test', {
+    new EnableVpcFlowLog(stack, 'test', {
       vpcId: 'vpc-123456789',
       logDestinationType: 'cloud-watch-logs',
     });
@@ -29,7 +29,7 @@ describe('secure of Vpc', () => {
     const app = Testing.app();
     const stack = new TerraformStack(app, 'test');
 
-    const log = new CreateVpcFlowLog(stack, 'test', {
+    const log = new EnableVpcFlowLog(stack, 'test', {
       vpcId: 'vpc-123456789',
     });
     log.addConfigRule();
