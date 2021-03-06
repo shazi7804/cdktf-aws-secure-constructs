@@ -12,6 +12,7 @@ const project = new JsiiProject({
   description: 'High level CDKTF construct to provision secure configurations with AWS',
   license: 'Apache-2.0',
   defaultReleaseBranch: 'main',
+  codeCov: true,
   python: {
     distName: 'cdktf-aws-secure',
     module: 'cdktf_aws_secure',
