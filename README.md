@@ -35,11 +35,27 @@ export class AwsSecure extends Resource {
     constructor(scope: Construct, name: string ) {
         super(scope, name);
 
-        // Enable account password policy
-        const policy = new secure.CreateAccountPasswordPolicy(this, 'DefaultAccountPwdPolicy', {})
+        ////// Samples
+        const policy = new secure.EnableAccountPasswordPolicy(this, 'DefaultAccountPwdPolicy', {})
+        
+        policy.addConfigRule() // and also add Config rule.
 
-        // and also add Config rule.
-        policy.addConfigRule()
+        // enable guardduty
+        new secure.EnableGuardduty(this, 'EnableGuardduty', {});
+
+        // enable cloudtrail
+        new secure.EnableCloudTrail(this, 'EnableCloudTrail', {});
+
+        // enable ebs encrypt default
+        new secure.EnableEbsEncryption(this, 'EnableEbsEncryption', {});new secure.EnableGuardduty(this, 'EnableGuardduty');
+
+        // enable vpc flow log
+        new secure.EnableVpcFlowLog(this, 'EnableVpcFlowLog', {
+            vpcId: 'vpc-0123456789'
+        });
+
+        // enable security hub
+        new secure.EnableSecurityHub(this, 'EnableSecurityHub');
     }
 }
 ```
