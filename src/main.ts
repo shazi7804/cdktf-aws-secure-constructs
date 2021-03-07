@@ -2,15 +2,42 @@ import { Resource } from 'cdktf';
 import { Construct } from 'constructs';
 import * as secure from './';
 
+export interface GuarddutyOptions {
+  readonly findingPublishingFrequency?: string;
+  readonly members?: any;
+  readonly tags?: { [key: string]: string };
+}
+
+export interface CloudTrailOptions {
+  readonly bucketName?: string;
+  readonly bucketKeyPrefix?: string;
+  readonly tags?: { [key: string]: string };
+}
+
+export interface VpcFlowLogOptions {
+  readonly vpcId: string;
+  readonly logDestination?: string;
+  readonly logDestinationType?: string;
+  readonly logFormat?: string;
+  readonly trafficType?: string;
+  readonly tags?: { [key: string]: string };
+}
+
 export interface BaseLineProps {
   readonly enableIamAccountPasswordPolicy?: boolean;
+  
   readonly enableGuardduty?: boolean;
+  readonly guarddutyOptions?: GuarddutyOptions;
+  
   readonly enableCloudtrail?: boolean;
+  readonly cloudtrailOptions?: CloudTrailOptions;
+
   readonly enableEbsEncryption?: boolean;
+
   readonly enableVpcFlowLog?: boolean;
+  readonly vpcFlowLogOptions?: VpcFlowLogOptions;
+  
   readonly enableSecurityHub?: boolean;
-  readonly vpcId?: string;
-  readonly tags?: { [key: string]: string };
 }
 
 export class BaseLine extends Resource {
@@ -18,9 +45,7 @@ export class BaseLine extends Resource {
     super(scope, name);
 
     if (props.enableCloudtrail) {
-      new secure.EnableCloudTrail(this, 'EnableCloudTrail', {
-        tags: props.tags
-      });
+      new secure.EnableCloudTrail(this, 'EnableCloudTrail', props.cloudtrailOptions as CloudTrailOptions);
     };
 
     if (props.enableIamAccountPasswordPolicy) {
@@ -32,16 +57,12 @@ export class BaseLine extends Resource {
     };
 
     if (props.enableGuardduty) {
-      new secure.EnableGuardduty(this, 'EnableGuardduty', {
-        tags: props.tags
-      });
+      new secure.EnableGuardduty(this, 'EnableGuardduty',
+        props.guarddutyOptions as GuarddutyOptions );
     };
 
-    if (props.enableVpcFlowLog && props.vpcId) {
-      new secure.EnableVpcFlowLog(this, 'EnableVpcFlowLog', {
-        vpcId: props.vpcId,
-        tags: props.tags
-      });
+    if (props.enableVpcFlowLog) {
+      new secure.EnableVpcFlowLog(this, 'EnableVpcFlowLog', props.vpcFlowLogOptions as VpcFlowLogOptions);
     };
 
     if (props.enableSecurityHub) {
