@@ -1,5 +1,5 @@
 export * from './main';
-export * from './iam';
+export * from './password_policy';
 export * from './vpc';
 export * from './config';
 export * from './guardduty';

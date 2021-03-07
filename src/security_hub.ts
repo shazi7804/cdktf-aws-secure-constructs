@@ -1,4 +1,3 @@
-import { PROPERTY_TYPES } from '@babel/types';
 import * as AWS from '@cdktf/provider-aws';
 import { Resource } from 'cdktf';
 import { Construct } from 'constructs';
