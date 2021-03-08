@@ -7,7 +7,7 @@ describe('secure of Config', () => {
     const stack = new TerraformStack(app, 'test');
 
     new EnableConfigRecorder(stack, 'TestDefault', {
-      snsTopicName: 'topic'
+      snsTopicName: 'topic',
     });
 
     expect(Testing.synth(stack)).toMatchSnapshot();

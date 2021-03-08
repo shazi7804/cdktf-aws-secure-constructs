@@ -25,10 +25,10 @@ export interface VpcFlowLogOptions {
 
 export interface BaseLineProps {
   readonly enableIamAccountPasswordPolicy?: boolean;
-  
+
   readonly enableGuardduty?: boolean;
   readonly guarddutyOptions?: GuarddutyOptions;
-  
+
   readonly enableCloudtrail?: boolean;
   readonly cloudtrailOptions?: CloudTrailOptions;
 
@@ -36,7 +36,7 @@ export interface BaseLineProps {
 
   readonly enableVpcFlowLog?: boolean;
   readonly vpcFlowLogOptions?: VpcFlowLogOptions;
-  
+
   readonly enableSecurityHub?: boolean;
 }
 

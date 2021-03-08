@@ -57,7 +57,7 @@ export class EnableSecurityHub extends Resource {
    */
   public subscribeCisBenchmark(id: string, options: SubscribeOptions): void {
     new AWS.SecurityhubStandardsSubscription(this, id, {
-      standardsArn: options.standardsArn || 'arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0'
+      standardsArn: options.standardsArn || 'arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0',
     });
   }
 
@@ -68,7 +68,7 @@ export class EnableSecurityHub extends Resource {
    */
   public subscribeAwsFoundational(id: string, options: SubscribeOptions): void {
     new AWS.SecurityhubStandardsSubscription(this, id, {
-      standardsArn: options.standardsArn || 'arn:aws:securityhub:' + this.region + '::standards/aws-foundational-security-best-practices/v/1.0.0'
+      standardsArn: options.standardsArn || 'arn:aws:securityhub:' + this.region + '::standards/aws-foundational-security-best-practices/v/1.0.0',
     });
   }
 
@@ -79,7 +79,7 @@ export class EnableSecurityHub extends Resource {
    */
   public subscribePciDss(id: string, options: SubscribeOptions): void {
     new AWS.SecurityhubStandardsSubscription(this, id, {
-      standardsArn: options.standardsArn || 'arn:aws:securityhub:' + this.region + '::standards/pci-dss/v/3.2.1'
+      standardsArn: options.standardsArn || 'arn:aws:securityhub:' + this.region + '::standards/pci-dss/v/3.2.1',
     });
   }
 }
