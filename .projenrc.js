@@ -1,8 +1,8 @@
 const { JsiiProject, Semver } = require('projen');
 
-const cdktfVersion = Semver.caret('0.1.0')
+const cdktfVersion = Semver.caret('0.3.0')
 const constructsVersion = Semver.caret('3.0.0')
-const awsProviderVersion = Semver.caret('1.0.17')
+const awsProviderVersion = Semver.caret('1.0.59')
 
 const project = new JsiiProject({
   name: 'cdktf-aws-secure',
